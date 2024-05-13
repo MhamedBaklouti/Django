@@ -1,0 +1,35 @@
+{% extends 'magasin/base.html' %}
+{% block title %} Catalogue de produits {% endblock title %}
+{% block content %}
+<!-- body -->
+<div class="bg-primary container-fluid mt-5">
+    <div class="row">
+       <!-- all products -->
+        <div id='products' class="col-lg-12 mx-auto">
+            <div class="row mx-auto">
+               {% for product in products %}
+               
+                <div  id={{product.id}} style="width: 18rem;">
+                  <div class="card p-5 m-2">
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                      {{product.prix}} Dt
+                    </span>
+                    <img src="../../media/{{product.img}}" class="card-img-top" alt="...">
+                  
+                    <div class="card-body">
+                      <h5 class="card-title">{{product.libelle}}</h5>
+                      <p class="card-text">{{product.description}}</p>
+                      <a href="#" class="btn btn-primary">Commander</a>
+                    </div>
+                  </div>
+
+                 </div>
+                 
+                {% endfor %}
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+{% endblock content%}
